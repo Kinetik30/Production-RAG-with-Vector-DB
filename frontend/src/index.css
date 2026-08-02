@@ -122,6 +122,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* Kill the grey Android tap-highlight overlay on any tappable element */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 html {
@@ -381,6 +384,13 @@ p  { color: var(--text-secondary); }
   max-width: 860px;
   margin: 0 auto;
   animation: fade-in-up 0.45s ease both;
+}
+
+/* ── Mobile: clear the floating bottom nav bar ─────────────────── */
+@media (max-width: 768px) {
+  .page {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  }
 }
 
 /* ── Utility ───────────────────────────────────────────────── */

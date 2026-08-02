@@ -1,11 +1,13 @@
-# Skill Lens — RAG Resume Matcher
+# Skill Lens — Hybrid RAG Resume Matcher
 
-A full-stack **Retrieval-Augmented Generation (RAG)** app that benchmarks a resume against job descriptions, synthesises skill profiles for any role, and surfaces real job-market trends.
+A full-stack **hybrid Retrieval-Augmented Generation (RAG)** app that benchmarks a resume against job descriptions, synthesises skill profiles for any role, and surfaces real job-market trends.
+
+Retrieval is **hybrid**: exact-keyword **BM25** (lexical) and semantic **vector search** (ChromaDB) are fused with Reciprocal Rank Fusion, then re-ranked with a CrossEncoder before an LLM generates grounded answers.
 
 Three features:
 
 - **Resume Matcher** — upload a resume PDF, add one or more JDs (text or PDF), get an independent compatibility score per JD plus **market-backed Career Coach insights** (ATS keyword coverage, demand-weighted skill gaps, salary band).
-- **Role Skill Explorer** — ask "what does a Data Engineer need to know?" and get a synthesised skill profile from a database of real job postings.
+- **Role Skill Explorer** — ask "what does a Data Engineer need to know?" and get a synthesised skill profile retrieved via hybrid BM25 + vector search from a database of real job postings.
 - **Trends Dashboard** — demand over time, salary distributions, posting volumes, and experience requirements computed from the JD database.
 
 ---

@@ -142,3 +142,35 @@
   box-shadow: 0 0 16px rgba(99, 102, 241, 0.15);
 }
 
+/* ── Mobile: floating bottom nav bar ────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-capsule {
+    position: fixed;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    left: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 10px;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: var(--navbar-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-card);
+    z-index: 200;
+  }
+
+  .nav-capsule__link {
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 3px;
+    padding: 8px 4px;
+    font-size: 0.68rem;
+    border-radius: 14px;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
