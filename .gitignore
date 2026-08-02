@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+
+# Environment — never commit API keys
+.env
+
+# ChromaDB persisted store
+data/chroma_db/
+data/*.sqlite3
+data/*.bin
+data/*.pickle
+
+# Cache
+data/chunks_cache.pkl
+data/trends_cache.json
+data/hf_cache/
+
+# Raw data CSVs
+data/*.csv
+
+# User data
+data/resumes/
+
+# uv
+uv.lock

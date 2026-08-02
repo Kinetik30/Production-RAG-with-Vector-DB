@@ -1,0 +1,15 @@
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+langchain-huggingface
+langchain-chroma
+langchain-classic
+chromadb
+pdfplumber
+sentence-transformers
+rank-bm25
+pandas
+fpdf2
+openai
+python-dotenv

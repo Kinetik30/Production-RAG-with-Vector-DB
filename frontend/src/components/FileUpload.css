@@ -1,0 +1,117 @@
+.file-upload {
+  border: 1.5px dashed rgba(129, 140, 248, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 240px;
+  gap: 14px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  background: rgba(255, 255, 255, 0.02);
+  text-align: center;
+  user-select: none;
+}
+
+.file-upload:hover,
+.file-upload--drag {
+  border-color: var(--accent-blue);
+  background: rgba(129, 140, 248, 0.08);
+  box-shadow: 0 0 24px rgba(129, 140, 248, 0.20);
+}
+
+.file-upload--filled {
+  border-style: solid;
+  border-color: rgba(34, 211, 165, 0.30);
+  background: rgba(34, 211, 165, 0.05);
+  flex-direction: row;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: default;
+  text-align: left;
+}
+
+.file-upload__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.35) 0%, rgba(129, 140, 248, 0.20) 100%);
+  border: 1px solid rgba(129, 140, 248, 0.40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a78bfa;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.30);
+  transition: all var(--transition-fast);
+}
+
+.file-upload:hover .file-upload__icon {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45);
+}
+
+.file-upload__icon--filled {
+  background: rgba(34, 211, 165, 0.12);
+  color: var(--accent-green);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+}
+
+.file-upload__hint {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.file-upload__subhint {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.file-upload__limit-pill {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.file-upload__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.file-upload__filename {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-upload__size {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.file-upload__clear {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+}

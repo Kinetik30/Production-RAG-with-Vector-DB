@@ -1,0 +1,30 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.pkl
+.pytest_cache/
+
+# Environment & secrets
+.env
+
+# Data — mounted as a volume, not baked into the image
+data/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Git
+.git/
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tooling
+.dockerignore
+Dockerfile
+docker-compose.yml
