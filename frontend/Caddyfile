@@ -1,0 +1,4 @@
+# Caddy reverse proxy — terminates TLS (Let's Encrypt) and proxies to nginx frontend.
+skill-lens.duckdns.org {
+    reverse_proxy frontend:80
+}
