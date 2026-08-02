@@ -264,7 +264,7 @@ experience distribution
 
 ### market_insights.py
 
-**Purpose:** the "Career Coach" differentiator — **LLM-free, deterministic** market insights attached to each match result.
+**Purpose:** the "Detailed Analytics" differentiator — **LLM-free, deterministic** market insights attached to each match result.
 
 - `get_role_category(text)` → `classify_role()` keyword matching.
 - `ats_coverage(resume_text, jd_text)` — the ATS score: extract the set of canonical skills whose aliases appear in the JD, then check which also appear in the resume. Score = `covered / jd_skills × 100`. Pure string matching, instantly reproducible, no LLM cost.
@@ -294,7 +294,7 @@ experience distribution
 
 - **Routing:** 3 pages via `react-router-dom` — `/` (Matcher), `/explore` (Explorer), `/trends` (Trends).
 - **Vite proxy:** `/api` → `http://127.0.0.1:8000` so the frontend can call relative URLs in dev.
-- **MatcherPage:** resume `FileUpload` + JD text editor + JD PDF dropzone; submits FormData; renders a `JdResultCard` per JD with `ScoreMeter`, matching/missing skills, and the **MarketInsights** section (ATS bar, top-3 priority gaps, salary band, "Career Coach deep dive" expandable panel with disclaimer). Keeps an **in-memory session cache** so results survive tab switches but vanish on refresh.
+- **MatcherPage:** resume `FileUpload` + JD text editor + JD PDF dropzone; submits FormData; renders a `JdResultCard` per JD with `ScoreMeter`, matching/missing skills, and the **MarketInsights** section (ATS bar, top-3 priority gaps, salary band, "Detailed Analytics" expandable panel with disclaimer). Keeps an **in-memory session cache** so results survive tab switches but vanish on refresh.
 - **ExplorerPage:** role chips + free-text role input + depth presets (Fast/Balanced/Comprehensive → top_k 3/5/10).
 - **TrendsPage:** hand-rolled SVG charts (multi-line demand, salary box-plots, stacked-area posting volume, experience bars) + market stat cards. Client-side cache Map so re-selecting a role is instant.
 - **Shared icons (`components/icons.tsx`):** all SVG icons deduplicated into one file.

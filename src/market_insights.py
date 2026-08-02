@@ -7,7 +7,7 @@ request time):
   - Skill demand + salary  → trends_cache (already in memory at API startup)
   - ATS coverage           → pure string matching against SKILL_ALIASES
 
-These power the "Career Coach" additions: market-weighted gap priorities,
+These power the "Detailed Analytics" additions: market-weighted gap priorities,
 a deterministic ATS coverage score, and a salary band for the matched role.
 """
 

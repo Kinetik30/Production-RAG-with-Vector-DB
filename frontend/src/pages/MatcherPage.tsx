@@ -90,7 +90,7 @@ function JdEditor({
   );
 }
 
-// ── Market Insights (Career Coach) ────────────────────────────────────────────
+// ── Market Insights (Detailed Analytics) ───────────────────────────────────────
 function atsColor(pct: number): string {
   return pct >= 75 ? "var(--accent-green)" : pct >= 50 ? "var(--accent-yellow)" : "var(--accent-red)";
 }

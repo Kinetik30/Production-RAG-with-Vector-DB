@@ -6,7 +6,7 @@ Retrieval is **hybrid**: exact-keyword **BM25** (lexical) and semantic **vector 
 
 Three features:
 
-- **Resume Matcher** — upload a resume PDF, add one or more JDs (text or PDF), get an independent compatibility score per JD plus **market-backed Career Coach insights** (ATS keyword coverage, demand-weighted skill gaps, salary band).
+- **Resume Matcher** — upload a resume PDF, add one or more JDs (text or PDF), get an independent compatibility score per JD plus **market-backed detailed analytics** (ATS keyword coverage, demand-weighted skill gaps, salary band).
 - **Role Skill Explorer** — ask "what does a Data Engineer need to know?" and get a synthesised skill profile retrieved via hybrid BM25 + vector search from a database of real job postings.
 - **Trends Dashboard** — demand over time, salary distributions, posting volumes, and experience requirements computed from the JD database.
 
@@ -223,7 +223,7 @@ RAG/
 │   ├── generation.py        # LLM calls, JSON schema, provider failover
 │   ├── analytics.py         # trends metrics (demand, salary, volume)
 │   ├── trends_cache.py      # disk-backed analytics cache
-│   └── market_insights.py   # LLM-free ATS/gaps/salary (Career Coach)
+│   └── market_insights.py   # LLM-free ATS/gaps/salary (Detailed Analytics)
 ├── scripts/
 │   ├── add_docs.py          # safe incremental indexing
 │   ├── build_sample.py      # regenerate the stratified sample
