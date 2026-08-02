@@ -3,10 +3,18 @@ api/routers/explorer.py
 POST /api/explore  — Mode 2: Role Skill Explorer
 """
 
+import threading
+
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
 router = APIRouter()
+
+# In-memory per-role cache: role|top_k -> result dict.
+# First query per role hits the LLM; repeats are instant (no re-generation).
+_EXPLORE_CACHE: dict[str, dict] = {}
+_EXPLORE_LOCK = threading.Lock()
+_MAX_CACHE = 256
 
 
 class ExploreRequest(BaseModel):
@@ -23,12 +31,32 @@ class ExploreResponse(BaseModel):
     error: str | None = None
 
 
+def _cache_get(key: str) -> dict | None:
+    with _EXPLORE_LOCK:
+        return _EXPLORE_CACHE.get(key)
+
+
+def _cache_put(key: str, result: dict) -> None:
+    with _EXPLORE_LOCK:
+        if len(_EXPLORE_CACHE) >= _MAX_CACHE:
+            # Drop oldest entry (dicts preserve insertion order)
+            _EXPLORE_CACHE.pop(next(iter(_EXPLORE_CACHE)))
+        _EXPLORE_CACHE[key] = result
+
+
 @router.post("/explore", response_model=ExploreResponse)
 async def explore_role(body: ExploreRequest, request: Request) -> ExploreResponse:
     """
     Given a role name, retrieve relevant JDs from the vector store
     and return a synthesised skill profile.
+
+    Results are cached per (role, top_k) so repeated queries skip the LLM.
     """
+    cache_key = f"{body.role.strip().lower()}|{body.top_k}"
+    cached = _cache_get(cache_key)
+    if cached is not None:
+        return ExploreResponse(**cached)
+
     from api.state import get_retriever
     retriever = get_retriever()
 
@@ -45,4 +73,5 @@ async def explore_role(body: ExploreRequest, request: Request) -> ExploreRespons
     if "error" in result:
         raise HTTPException(status_code=422, detail=result["error"])
 
+    _cache_put(cache_key, result)
     return ExploreResponse(**result)
