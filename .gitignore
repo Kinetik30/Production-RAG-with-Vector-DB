@@ -17,6 +17,7 @@ data/*.pickle
 data/chunks_cache.pkl
 data/trends_cache.json
 data/hf_cache/
+data/*.tar.gz
 
 # Raw data CSVs
 data/*.csv
