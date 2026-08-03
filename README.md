@@ -10,6 +10,32 @@ Three features:
 - **Role Skill Explorer** — ask "what does a Data Engineer need to know?" and get a synthesised skill profile retrieved via hybrid BM25 + vector search from a database of real job postings.
 - **Trends Dashboard** — demand over time, salary distributions, posting volumes, and experience requirements computed from the JD database.
 
+## Screenshots
+
+### Landing
+![Landing — light mode](pictures/skill-lens/landing-light.png)
+
+![Landing — dark mode](pictures/skill-lens/landing-dark.png)
+
+### Resume Matcher
+![Resume Matcher — dummy JD loaded](pictures/skill-lens/resume-matcher.png)
+
+![Match evaluation — detailed analytics](pictures/skill-lens/match-evaluation.png)
+
+### Role Skill Explorer
+![Role Explorer — light mode](pictures/skill-lens/role-explorer-light.png)
+
+![Role Explorer — results](pictures/skill-lens/role-explorer.png)
+
+![Role Explorer — comprehensive](pictures/skill-lens/role-explorer-2.png)
+
+### Trends Dashboard
+![Dashboard — light mode](pictures/skill-lens/dashboard-light.png)
+
+![Dashboard — overview](pictures/skill-lens/dashboard-1.png)
+
+![Dashboard — detailed](pictures/skill-lens/dashboard-2.png)
+
 ---
 
 ## Tech Stack
